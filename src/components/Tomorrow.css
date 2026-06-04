@@ -1,0 +1,129 @@
+.tomorrow {
+  padding: 7rem 0;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.tomorrow__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.tomorrow__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.4rem;
+  color: var(--black);
+}
+
+.tomorrow__underline {
+  position: relative;
+  display: inline-block;
+}
+.tomorrow__underline::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--coral);
+  border-radius: 2px;
+}
+
+.tomorrow__body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 420px;
+  margin-bottom: 2rem;
+}
+
+.tomorrow__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--black);
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
+  transition: gap var(--transition);
+}
+.tomorrow__link:hover .tomorrow__arrow { transform: translateX(6px); }
+.tomorrow__arrow { transition: transform var(--transition); display: inline-block; }
+
+/* Visual side */
+.tomorrow__visual { position: relative; }
+
+.tomorrow__img-wrap {
+  position: relative;
+  border-radius: 50%;
+  width: 340px;
+  height: 340px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.tomorrow__img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #e8e4d8 0%, #d4cfc4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.tomorrow__img-people {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, #c9c4b8 30%, #a8a39a 100%);
+  /* Simulates two people meeting */
+  clip-path: ellipse(80% 90% at 50% 60%);
+}
+
+.tomorrow__shape {
+  position: absolute;
+  pointer-events: none;
+}
+.tomorrow__shape--pink {
+  width: 80px; height: 80px;
+  background: var(--pink-blob);
+  border-radius: 50%;
+  bottom: -20px; right: 30px;
+  filter: blur(2px);
+}
+.tomorrow__shape--coral {
+  width: 60px; height: 60px;
+  background: var(--coral);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  bottom: 20px; left: 0;
+  opacity: 0.85;
+}
+
+.tomorrow__deco--rect {
+  width: 48px; height: 48px;
+  border: 3px solid var(--yellow);
+  position: absolute;
+  top: 0; right: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .tomorrow__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .tomorrow__img-wrap { width: 260px; height: 260px; }
+}
+.tomorrow__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

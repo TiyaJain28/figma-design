@@ -1,0 +1,108 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  height: 64px;
+}
+
+.navbar--scrolled {
+  border-bottom-color: var(--gray-200);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.navbar__inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--black);
+  letter-spacing: -0.01em;
+  transition: opacity var(--transition);
+}
+.navbar__logo:hover { opacity: 0.7; }
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.navbar__link {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  transition: color var(--transition);
+  position: relative;
+}
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--black);
+  transition: width var(--transition);
+}
+.navbar__link:hover { color: var(--black); }
+.navbar__link:hover::after { width: 100%; }
+
+/* Hamburger */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  transition: all var(--transition);
+  transform-origin: center;
+}
+.navbar__hamburger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__hamburger--open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.navbar__hamburger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .navbar__hamburger { display: flex; }
+
+  .navbar__links {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity var(--transition), transform var(--transition);
+  }
+  .navbar__links--open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  .navbar__link {
+    font-size: 1.4rem;
+    font-family: var(--font-serif);
+  }
+}
