@@ -1,7 +1,7 @@
 
 A modern and responsive agency landing page built using **React.js** and **Vite**. The project recreates a professional Figma design with smooth animations, responsive layouts, and clean UI components.
 ## 🔗 Live Demo
-
+figma-design-rust-zeta.vercel.app
 Add your deployed project link here.
 ## 🚀 Features
 
